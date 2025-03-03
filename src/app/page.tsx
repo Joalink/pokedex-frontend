@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { PokemonsInterface } from "@/interfaces/PokemonsInterface";
 import { PokemonInterface } from "@/interfaces/PokemonInterface";
 import { getData } from "@/lib/api";
 import PokemonModal from "@/components/PokemonModal";
@@ -79,7 +77,7 @@ export default function Home() {
           selectedType={selectedType}
           onTypeChange={setSelectedType}
         />
-      </div>
+    </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 py-6">
         {data

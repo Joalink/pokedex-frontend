@@ -17,9 +17,18 @@ export default function PokemonModal({ pokemon, onClose }: { pokemon: PokemonInt
       setIsVisible(false); 
       setTimeout(onClose, 300); 
     };
+
+    const handleOutsideClick = (e: React.MouseEvent) => {
+      if(e.target === e.currentTarget) handleClose();
+    };
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-85 z-50 transition-opacity duration-300 ${ isVisible ? 'opacity-100' : 'opacity-0'}">
+    <div
+      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-85 z-50 transition-opacity duration-300 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      onClick={handleOutsideClick}
+      role="dialog"
+      aria-modal="true"
+    >
       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-96 text-center transform transition-all duration-300 ${isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}">
         <button
           onClick={handleClose}
@@ -36,9 +45,7 @@ export default function PokemonModal({ pokemon, onClose }: { pokemon: PokemonInt
             alt={pokemon.name}
             width={100}
             height={100}
-            className="mx-auto ${
-              isImageLoaded ? 'animate-fade-in animate-bounce' : 'opacity-0'
-            }`"
+            className={`mx-auto ${ isImageLoaded ? 'animate-fade-in animate-bounce' : 'opacity-0'}`}
             onLoadingComplete={() => setIsImageLoaded(true)}
           />
         </div>

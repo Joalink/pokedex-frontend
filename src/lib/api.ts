@@ -23,7 +23,7 @@ export const getData = async (page: number = 1, limit: number = 20): Promise<{ p
 
     return {
       pokemonDetails,
-      count: response.data.count, // Incluir el count en la respuesta
+      count: response.data.count,
     };
   } catch (error) {
     console.error("Error fetching data:", error);
